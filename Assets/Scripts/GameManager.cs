@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI lifeText;
     public GameObject gameOverText;
     public GameObject titleScreen;
     public bool isGameActive;
     public Button restartButton;
     float spawnRate = 1.0f;
     int score;
+    int life;
     void Start()
     {
         GameOver(false);
@@ -35,11 +37,21 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, targets.Count);
         Instantiate(targets[index]).GetComponent<Target>().SetPosition(pos);
     }
-    
+
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = $"Score : {score}";
+    }
+
+    public void UpdateLife(int lifeToSub)
+    {
+        life -= lifeToSub;
+        lifeText.text = $"Life : {life}";
+        if(life <= 0)
+        {
+            GameOver(true);
+        }
     }
 
     public void GameOver(bool value)
