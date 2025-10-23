@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreatTarget(Vector3 pos)
+    public void CreateTarget(Vector3 pos)
     {
         int index = Random.Range(0, targets.Count);
         Instantiate(targets[index]).GetComponent<Target>().SetPosition(pos);
