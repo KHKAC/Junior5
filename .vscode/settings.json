@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Junior5.sln"
+    "dotnet.defaultSolution": "ncs2505jpp5.sln"
 }
